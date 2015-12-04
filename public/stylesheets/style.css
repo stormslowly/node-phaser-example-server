@@ -4,5 +4,10 @@ body {
 }
 
 a {
-  color: #00B7FF;
+  color: #ffB7FF;
+}
+
+.tree {
+	width: 20%;
+	border-color: #000
 }

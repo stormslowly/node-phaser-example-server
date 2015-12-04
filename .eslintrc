@@ -1,0 +1,34 @@
+{
+    "rules": {
+        "indent": [
+            0,
+            4
+        ],
+        "quotes": [
+            0,
+            "single"
+        ],
+        "linebreak-style": [
+            2,
+            "unix"
+        ],
+        "no-extra-semi": [
+            0
+        ],
+        "no-console": [0],
+        "strict": [2, "global"]
+    },
+    "env": {
+        "node": true
+    },
+    "extends": "eslint:recommended",
+    "globals": {
+        "describe": true,
+        "it": true,
+        "context": true,
+        "beforeEach": true,
+        "afterEach": true,
+        "before": true,
+        "after": true
+    }
+}
