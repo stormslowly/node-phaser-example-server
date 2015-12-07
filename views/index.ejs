@@ -1,27 +1,43 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <title>Phaser examples</title>
     <link rel='stylesheet' href='jquery.fileTree/jqueryFileTree.css' />
   </head>
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-    <div id="fileTree" class="tree"></div>
-    <div class="main">
-        <div id="example" class="monitor"></div>
-        <div id="editor" class="codePanel"></div>
+    <h1>Phaser examples</h1>
+    <div class="container">
+
+        <div id="fileTree" class="tree"></div>
+        <div class="main">
+            <div id="phaser-example" class="monitor"></div>
+            <div id="editor" class="codePanel">
+                <pre>
+                    <code class=""><%- code %>
+                    </code>
+                </pre>
+            </div>
+        </div>
     </div>
     <script type="text/javascript" src='jquery.fileTree/jquery.js'></script>
     <script type="text/javascript" src='jquery.fileTree/jquery.easing.js'></script>
     <script type="text/javascript" src='jquery.fileTree/jqueryFileTree.js'></script>
+    <script type="text/javascript" src='/_site/phaser/phaser.2.4.4.min.js'></script>
+    <script type="text/javascript" src='<%= link %>'></script>
+    <link rel="stylesheet" type="text/css" href="/javascripts/styles/monokai.css">
+    <link rel='stylesheet' href='/stylesheets/style.css' />
 
+    <script type="text/javascript" src='/javascripts/highlight.pack.js'></script>
     <script type="text/javascript">
         $(document).ready( function() {
-            $('#fileTree').fileTree({ root: '/Users/shupengfei/git/phaser-examples/' ,script: 'dir' }, function(file) {
-                alert(file);
+            $('#fileTree').fileTree({ root: '/' ,script: 'dir' }, function(file) {
+                console.log(file,encodeURIComponent(file));
+                window.location.replace('?file=' + encodeURI(file));
             });
+            hljs.initHighlighting({
+
+            });
+
         });
     </script>
   </body>

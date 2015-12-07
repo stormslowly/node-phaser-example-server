@@ -1,13 +1,52 @@
+
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  color: #fff;
+  background-color: #e0e4f1;
+  background: url(/images/bg-body4.jpg) repeat 50% 0;
+}
+
+h1{
+  text-shadow: 1px 1px 2px rgba(182, 27, 242, 0.4), 1px -1px 2px rgba(182, 27, 242, 0.4), -1px 1px 2px rgba(182, 27, 242, 0.4), -1px -1px 2px rgba(182, 27, 242, 0.4), 0 0 20px rgba(0, 134, 255, 0.75);
+  margin: 20px auto;
+  text-align: center;
+  font-size: 50px;
 }
 
 a {
   color: #ffB7FF;
 }
 
+.container{
+	width: 1100px;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.main{
+	float: right;
+	width: 800px;
+	margin-right: 10px;
+}
+
 .tree {
-	width: 20%;
-	border-color: #000
+	border-width: 10px;
+	width: 230px;
+	overflow-x: hidden;
+	border-color: #000;
+	border-style: double;
+	float: left;
+}
+.codePanel{
+	overflow-x: scroll;;
+}
+
+.monitor{
+	background: red;
+	width: 800px;
+	height: 600px;
+}
+
+pre>code{
+  padding: 1em;
 }

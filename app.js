@@ -4,8 +4,10 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var path = require('path')
 
 var routes = require('./routes/index');
+var config = require('./config.json')
 
 var app = express();
 
@@ -22,9 +24,9 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.static(path.join(__dirname, 'bower_components')));
+app.use(express.static(config.root,{index:false}));
 
-app.use('/', routes);
+app.use('/', routes(config.root))
 
 
 

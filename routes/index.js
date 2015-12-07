@@ -5,41 +5,57 @@ var path = require('path')
 var express = require('express');
 var router = express.Router();
 
-var config = require('../config.json')
+module.exports = function (example_root) {
 
-router.get('/', function (req, res) {
-    res.render('index', {
-        title: 'Express'
-    });
-});
+    var base = example_root
+    router.get('/', function (req, res) {
 
-var base = config.examples_root
-router.post('/dir', function (req, res) {
-    var p = req.body.dir
+        var file = decodeURI(req.query.file || '')
 
-    var dir = p
+        if (file) {
+            var code = fs.readFileSync(path.join(example_root, file), 'utf-8')
+            var link = path.relative(base, file)
+        }
 
-    var r = '<ul class="jqueryFileTree" style="display: none;">';
-    try {
-        r = '<ul class="jqueryFileTree" style="display: none;">';
-        var files = fs.readdirSync(dir);
-        files.forEach(function (f) {
-            var ff = dir + f;
-            var stats = fs.statSync(ff)
-            if (stats.isDirectory()) {
-                r += '<li class="directory collapsed"><a href="#" rel="' + ff + '/">' + f + '</a></li>';
-            } else {
-                var e = f.split('.')[1];
-                r += '<li class="file ext_' + e + '"><a href="#" rel=' + ff + '>' + f + '</a></li>';
-            }
+        res.render('index', {
+            root: base,
+            code: code || '',
+            link: file || ''
         });
-        r += '</ul>';
-    } catch (e) {
-        console.error('logs', e);
-        r += 'Could not load directory: ' + dir;
-        r += '</ul>';
-    }
-    res.send(r)
-})
+    });
 
-module.exports = router;
+    router.post('/dir', function (req, res) {
+        var p = decodeURI(req.body.dir)
+
+        console.log('logs', p);
+        var dir = path.join(example_root, p)
+
+        var r = '<ul class="jqueryFileTree" style="display: none;">';
+        try {
+            r = '<ul class="jqueryFileTree" style="display: none;">';
+            var files = fs.readdirSync(dir);
+            files.forEach(function (f) {
+                var ff = dir + f;
+                var stats = fs.statSync(ff)
+                var rel = path.relative(example_root, ff)
+                if (stats.isDirectory()) {
+
+                    r += '<li class="directory collapsed"><a href="#" rel="' + rel + '/">' + f + '</a></li>';
+                } else {
+                    var e = path.extname(ff)
+                    if (e !== '.js') return
+                    r += '<li class="file ext_' + e + '"><a href="#" rel="' + rel + '">' + f + '</a></li>';
+                }
+            });
+            r += '</ul>';
+        } catch (e) {
+            console.error('logs', e);
+            r += 'Could not load directory: ' + dir;
+            r += '</ul>';
+        }
+        res.send(r)
+    })
+
+
+    return router
+};
