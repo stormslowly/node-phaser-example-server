@@ -42,9 +42,10 @@ a {
 }
 
 .monitor{
-	background: red;
 	width: 800px;
 	height: 600px;
+	background-image: url(/images/screen.jpg);
+	/*background: #10191E;*/
 }
 
 pre>code{
