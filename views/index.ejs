@@ -29,10 +29,11 @@
 
     <script type="text/javascript" src='/javascripts/highlight.pack.js'></script>
     <script type="text/javascript">
+        var game;
         $(document).ready( function() {
             $('#fileTree').fileTree({ root: '/' ,script: 'dir' }, function(file) {
                 console.log(file,encodeURIComponent(file));
-                game && game.destroy()
+                game &&game.destroy&& game.destroy()
                 $.getScript(file)
                  .done(function (scriptContent) {
                     $('#editor code').text(scriptContent)
@@ -40,9 +41,7 @@
 
                  })
             });
-            hljs.initHighlighting({
-
-            });
+            hljs.initHighlighting();
 
         });
     </script>

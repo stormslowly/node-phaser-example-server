@@ -45,6 +45,7 @@ a {
 	width: 800px;
 	height: 600px;
 	background-image: url(/images/screen.jpg);
+	background-size: contain;
 	/*background: #10191E;*/
 }
 
