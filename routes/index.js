@@ -14,7 +14,6 @@ module.exports = function (example_root) {
 
         if (file) {
             var code = fs.readFileSync(path.join(example_root, file), 'utf-8')
-            var link = path.relative(base, file)
         }
 
         res.render('index', {
