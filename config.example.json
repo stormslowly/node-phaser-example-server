@@ -1,0 +1,4 @@
+{
+	// example /Users/somewhere/phaser-examples/examples/
+	"root": "the absolute path to the phaser example folders"
+}
