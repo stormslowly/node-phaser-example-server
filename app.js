@@ -1,13 +1,13 @@
+'use strict';
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var path = require('path')
 
 var routes = require('./routes/index');
-var config = require('./config.json')
+var config = require('./config.json');
 
 var app = express();
 
@@ -41,7 +41,7 @@ app.use(function (req, res, next) {
 
 
 if (app.get('env') === 'development') {
-  app.use(function (err, req, res, next) {
+  app.use(function (err, req, res) {
     res.status(err.status || 500);
     res.render('error', {
       message: err.message,
@@ -50,7 +50,7 @@ if (app.get('env') === 'development') {
   });
 }
 
-app.use(function (err, req, res, next) {
+app.use(function (err, req, res) {
   res.status(err.status || 500);
   res.render('error', {
     message: err.message,

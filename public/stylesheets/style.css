@@ -36,6 +36,7 @@ a {
 	border-color: #000;
 	border-style: double;
 	float: left;
+	height: 600px;
 }
 .codePanel{
 	overflow-x: scroll;;
@@ -46,7 +47,6 @@ a {
 	height: 600px;
 	background-image: url(/images/screen.jpg);
 	background-size: contain;
-	/*background: #10191E;*/
 }
 
 pre>code{
