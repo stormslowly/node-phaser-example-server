@@ -13,6 +13,11 @@ But I don't like php, so I want to write a simple server with `node.js` to host 
 3. start the server `./bin/www`
 4. vist <http://localhost:3000>
 
+![screenshot](https://raw.githubusercontent.com/stormslowly/node-phaser-example-server/master/public/images/screenshot.png)
+
+- left pannel use to select the example
+- the big screen is the game container
+- below is the related code
 
 ## Plan
 * write a `CLI` so that can start the server by specify the path of example
