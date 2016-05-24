@@ -10,7 +10,7 @@ h1{
   text-shadow: 1px 1px 2px rgba(182, 27, 242, 0.4), 1px -1px 2px rgba(182, 27, 242, 0.4), -1px 1px 2px rgba(182, 27, 242, 0.4), -1px -1px 2px rgba(182, 27, 242, 0.4), 0 0 20px rgba(0, 134, 255, 0.75);
   margin: 20px auto;
   text-align: center;
-  font-size: 50px;
+  font-size: 20px;
 }
 
 a {
