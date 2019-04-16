@@ -1,11 +1,11 @@
-##Why this project
+## Why this project
 
 If you want to run [phaser-examples](https://github.com/photonstorm/phaser-examples) locally.
 As its [index.html](https://github.com/photonstorm/phaser-examples/blob/master/examples/index.html) says that we need to install php and some web container.
 
 But I don't like php, so I want to write a simple server with `node.js` to host the example locally.
 
-##How to use
+## How to use
 
 1. clone the project
 2. change the `config.example.json ` to `config.json`, edit to specify the path of exmaples
